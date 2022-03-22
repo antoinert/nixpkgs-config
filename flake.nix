@@ -23,6 +23,8 @@
         system = "aarch64-linux";
       };
 
+      homeConfigurations.x86linux = mkHomeConfiguration {};
+
       inherit home-manager;
     };
 }
