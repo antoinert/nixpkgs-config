@@ -19,5 +19,20 @@
     userName = "Anton Rautio";
     userEmail = "anton.rautio@gmail.com";
   };
+
+  programs.ssh = {
+    enable = true;
+    forwardAgent = true;
+
+    extraConfig = ''
+      Host github.com
+        User git
+        IdentityFile ~/.ssh/id_rsa
+
+      Host gitlab.com
+        User git
+        IdentityFile ~/.ssh/id_rsa
+    '';
+  };
 }
 
