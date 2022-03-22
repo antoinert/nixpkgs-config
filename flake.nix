@@ -26,6 +26,7 @@
       homeConfigurations.x86linux = mkHomeConfiguration {};
       homeConfigurations.macos = mkHomeConfiguration {
         system = "aarch64-darwin";
+        homeDirectory = "/Users/anton";
       };
 
       inherit home-manager;

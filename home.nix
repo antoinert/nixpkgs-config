@@ -37,6 +37,11 @@
 
   programs.zsh = {
     enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+
+    dotDir = ".config/zsh";
+
     shellAliases = {
       ll = "ls -l";
       update = "sudo nixos-rebuild switch";
