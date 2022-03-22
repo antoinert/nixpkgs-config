@@ -24,6 +24,9 @@
       };
 
       homeConfigurations.x86linux = mkHomeConfiguration {};
+      homeConfigurations.macos = mkHomeConfiguration {
+        system = "aarch64-darwin";
+      };
 
       inherit home-manager;
     };
