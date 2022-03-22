@@ -3,7 +3,7 @@
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  home.packages = [ pkgs.git ];
+  home.packages = with pkgs; [ git ];
 
   nixpkgs.config.allowUnfree = true;
 
