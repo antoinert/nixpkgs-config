@@ -62,7 +62,7 @@
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
     };
-
+    # zsh
     oh-my-zsh = {
       enable = true;
       plugins = [ "ssh-agent" ];
