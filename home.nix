@@ -47,6 +47,7 @@
     shellAliases = {
       ll = "ls -l";
       update = "sudo nixos-rebuild switch";
+      nd = "nix develop -c zsh";
     };
 
     history = {
