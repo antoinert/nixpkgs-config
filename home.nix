@@ -50,6 +50,8 @@
       nd = "nix develop -c zsh";
     };
 
+    profileExtra = "source $HOME/.cargo/env";
+
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
