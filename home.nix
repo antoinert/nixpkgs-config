@@ -29,10 +29,14 @@
     extraConfig = ''
       Host github.com
         User git
+        UseKeychain yes
+        AddKeysToAgent yes
         IdentityFile ~/.ssh/id_rsa
 
       Host gitlab.com
         User git
+        UseKeychain yes
+        AddKeysToAgent yes
         IdentityFile ~/.ssh/id_rsa
     '';
   };
