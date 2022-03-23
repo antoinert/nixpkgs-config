@@ -3,7 +3,7 @@
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  home.packages = with pkgs; [ git ];
+  home.packages = with pkgs; [ git obsidian ];
 
   nixpkgs.config.allowUnfree = true;
 
