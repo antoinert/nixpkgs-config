@@ -28,17 +28,11 @@
 
     extraConfig = ''
       Host github.com
-        IgnoreUnknown UseKeychain
         User git
-        UseKeychain yes
-        AddKeysToAgent yes
         IdentityFile ~/.ssh/id_rsa
 
       Host gitlab.com
-        IgnoreUnknown UseKeychain
         User git
-        UseKeychain yes
-        AddKeysToAgent yes
         IdentityFile ~/.ssh/id_rsa
     '';
   };
@@ -65,7 +59,7 @@
 
     oh-my-zsh = {
       enable = true;
-      # plugins = [ "git" "thefuck" ];
+      plugins = [ "ssh-agent" ];
       theme = "af-magic";
     };
   };
