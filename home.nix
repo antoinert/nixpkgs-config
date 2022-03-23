@@ -28,12 +28,14 @@
 
     extraConfig = ''
       Host github.com
+        IgnoreUnknown UseKeychain
         User git
         UseKeychain yes
         AddKeysToAgent yes
         IdentityFile ~/.ssh/id_rsa
 
       Host gitlab.com
+        IgnoreUnknown UseKeychain
         User git
         UseKeychain yes
         AddKeysToAgent yes
