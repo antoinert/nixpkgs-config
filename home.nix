@@ -13,6 +13,8 @@
       bbenoist.nix
       eamodio.gitlens
       matklad.rust-analyzer
+      esbenp.prettier-vscode
+      dbaeumer.vscode-eslint
     ];
   };
 
