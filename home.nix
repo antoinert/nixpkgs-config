@@ -27,6 +27,13 @@
     forwardAgent = true;
 
     extraConfig = ''
+      Host *
+        IgnoreUnknown UseKeychain
+        User git
+        UseKeychain yes
+        AddKeysToAgent yes
+        IdentityFile ~/.ssh/id_rsa
+
       Host github.com
         IgnoreUnknown UseKeychain
         User git
