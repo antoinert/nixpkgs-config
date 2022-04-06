@@ -29,13 +29,6 @@
     forwardAgent = true;
 
     extraConfig = ''
-      Host *
-        IgnoreUnknown UseKeychain
-        User git
-        UseKeychain yes
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/id_rsa
-
       Host mmain
         Hostname 138.68.113.197
         User root
