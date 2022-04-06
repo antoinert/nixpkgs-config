@@ -36,6 +36,11 @@
         AddKeysToAgent yes
         IdentityFile ~/.ssh/id_rsa
 
+      Host mmain
+        Hostname 138.68.113.197
+        User root
+        IdentityFile ~/.ssh/meterverse_rsa
+
       Host github.com
         IgnoreUnknown UseKeychain
         User git
