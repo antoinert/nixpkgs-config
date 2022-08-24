@@ -15,6 +15,7 @@
       matklad.rust-analyzer
       esbenp.prettier-vscode
       dbaeumer.vscode-eslint
+      jakebecker.elixir-ls
     ];
   };
 
