@@ -35,6 +35,11 @@
         User root
         IdentityFile ~/.ssh/meterverse_rsa
 
+      Host mmaster
+        Hostname 104.248.103.13
+        User root
+        IdentityFile ~/.ssh/meterverse_rsa
+
       Host github.com
         IgnoreUnknown UseKeychain
         User git
