@@ -3,12 +3,27 @@
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  home.packages = with pkgs; [ git obsidian scc ];
+  home.packages = with pkgs; [ 
+    git
+    obsidian
+    ripgrep
+    git-crypt
+    pandoc
+    yarn
+    vale
+    flyctl
+    stripe-cli
+    vale
+    ffmpeg
+    doxygen
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
   programs.vscode = {
     enable = true;
+    enableExtensionUpdateCheck = false;
+    enableUpdateCheck = false;
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       eamodio.gitlens
@@ -16,6 +31,17 @@
       esbenp.prettier-vscode
       dbaeumer.vscode-eslint
       jakebecker.elixir-ls
+      hashicorp.terraform
+      github.copilot
+      elixir-lsp.vscode-elixir-ls
+      phoenixframework.phoenix
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "markdowntable";
+        publisher = "TakumiI";
+        version = "0.10.4";
+        sha256 = "rynWwTPsDQirKu1uhs7rHIglTay/4S1MA0M17Mdjtxw=";
+      }
     ];
   };
 
@@ -23,6 +49,11 @@
     enable = true;
     userName = "Anton Rautio";
     userEmail = "anton.rautio@gmail.com";
+
+    extraConfig = {
+      github.user = "antoinert";
+      push.autoSetupRemote = true;
+    };
   };
 
   programs.ssh = {
@@ -69,7 +100,13 @@
       nd = "nix develop -c zsh";
     };
 
-    profileExtra = "source $HOME/.cargo/env";
+    profileExtra =
+      ''
+      source $HOME/.cargo/env
+      . $HOME/.asdf/asdf.sh
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+      $(/opt/homebrew/bin/brew shellenv)
+      '';
 
     history = {
       size = 10000;

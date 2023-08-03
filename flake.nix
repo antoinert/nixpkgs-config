@@ -8,13 +8,24 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { home-manager, ... }:
+  outputs = { home-manager, nixpkgs, ... }:
     let
       mkHomeConfiguration = args: home-manager.lib.homeManagerConfiguration (rec {
-        system = args.system or "x86_64-linux";
-        configuration = import ./home.nix;
-        homeDirectory = "/home/anton";
-        username = "anton";
+        pkgs = nixpkgs.legacyPackages.${"x86_64-linux"};
+        modules = [
+          ./home.nix
+          {
+            home = {
+              username = "anton";
+              homeDirectory = "/home/anton";
+              stateVersion = "22.05";
+            };
+          }
+        ];
+        # system = args.system or "x86_64-linux";
+        # configuration = import ./home.nix;
+        # homeDirectory = "/home/anton";
+        # username = "anton";
       } // args);
     in {
       nixosModules.home = import ./home.nix;
@@ -25,8 +36,19 @@
 
       homeConfigurations.x86linux = mkHomeConfiguration {};
       homeConfigurations.macos = mkHomeConfiguration {
-        system = "aarch64-darwin";
-        homeDirectory = "/Users/anton";
+        pkgs = nixpkgs.legacyPackages.${"aarch64-darwin"};
+        modules = [
+          ./home.nix
+          {
+            home = {
+              username = "anton";
+              homeDirectory = "/Users/anton";
+              stateVersion = "22.05";
+            };
+          }
+        ];
+        # system = "aarch64-darwin";
+        # homeDirectory = "/Users/anton";
       };
 
       inherit home-manager;
